@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Team Task Manager
 
-## Getting Started
+A full-stack project and task management application built with Next.js, Prisma, and Tailwind CSS. Features role-based access control (Admin/Member), dynamic dashboards, and a premium user interface.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Authentication**: Secure Signup & Login with NextAuth.js and bcrypt.
+- **Role-Based Access Control**: Admins can create projects and tasks, while Members can only update the status of tasks assigned to them.
+- **Project & Team Management**: Group tasks under dedicated projects.
+- **Task Tracking**: Assign users, set due dates, and update statuses (PENDING, IN_PROGRESS, COMPLETED).
+- **Dynamic Dashboard**: Overview of tasks, statuses, and overdue tracking.
+- **Premium UI**: Modern design with vibrant colors, micro-animations, and glassmorphism.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js (App Router)
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **Authentication**: NextAuth.js
+- **Styling**: Tailwind CSS & Lucide React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Local Development
 
-## Learn More
+1. **Clone the repository** (if not already done) and navigate to the project folder.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Environment Setup**:
+   Create a `.env` file in the root directory based on `.env.example`:
+   ```env
+   DATABASE_URL="postgresql://username:password@localhost:5432/taskmanager"
+   NEXTAUTH_SECRET="your_random_secret_string"
+   NEXTAUTH_URL="http://localhost:3000"
+   ```
+   *(Ensure you have a local PostgreSQL database running, or use a cloud database URL like Railway).*
+4. **Run Database Migrations**:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+5. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Railway Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This application is ready to be deployed on [Railway](https://railway.app).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Push your code to GitHub**: Create a repository and push this source code.
+2. **Create a Railway Project**:
+   - Go to Railway Dashboard and click **New Project** -> **Deploy from GitHub repo**.
+   - Select your repository.
+3. **Add PostgreSQL Database**:
+   - In your Railway project, click **New** -> **Database** -> **Add PostgreSQL**.
+4. **Configure Environment Variables**:
+   - Go to your Web App settings on Railway -> **Variables**.
+   - Railway will automatically detect and link the `DATABASE_URL` from the PostgreSQL instance.
+   - Add `NEXTAUTH_SECRET` (generate a secure random string).
+   - Add `NEXTAUTH_URL` (set to your generated Railway domain, e.g., `https://your-app.up.railway.app`).
+5. **Database Migrations on Railway**:
+   - Railway's build process automatically runs `npm install` and `npm run build`.
+   - The `postinstall` script in `package.json` will automatically generate the Prisma client.
+   - To apply your schema to the production database, go to the Web App's **Deployments** tab. Under **Deploy Command**, you can either set it manually or open the Railway terminal (CLI) and run:
+     ```bash
+     npx prisma db push
+     ```
+6. **Domain Setup**:
+   - Go to **Settings** -> **Domains** -> click **Generate Domain** to get your public URL.
+   - Access your live web application!
