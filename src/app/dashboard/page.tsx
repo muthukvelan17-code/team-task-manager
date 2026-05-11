@@ -44,7 +44,7 @@ export default function DashboardOverview() {
   };
 
   const dashboardStats = [
-    { label: "Active Projects", value: stats?.activeProjects ?? 0, icon: FolderKanban, color: "text-blue-600", bg: "bg-blue-100" },
+    { label: "Active Projects", value: stats?.activeProjects ?? 0, icon: FolderKanban, color: "text-pink-600", bg: "bg-pink-100" },
     { label: "My Tasks", value: stats?.myTasks?.total ?? 0, icon: ListTodo, color: "text-indigo-600", bg: "bg-indigo-100" },
     { label: "Completed", value: stats?.myTasks?.completed ?? 0, icon: CheckCircle2, color: "text-green-600", bg: "bg-green-100" },
     { label: "Overdue Projects", value: stats?.overdueProjects ?? 0, icon: AlertCircle, color: "text-red-600", bg: "bg-red-100" },
@@ -52,7 +52,7 @@ export default function DashboardOverview() {
 
   if (loading) return (
     <div className="h-64 flex flex-col items-center justify-center space-y-4">
-      <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
+      <Loader2 className="w-10 h-10 animate-spin text-pink-600" />
       <p className="text-slate-500 font-medium">Loading dashboard overview...</p>
     </div>
   );
@@ -67,7 +67,7 @@ export default function DashboardOverview() {
           <p className="text-slate-500 mt-2 text-lg">Here's a quick look at your team's workspace.</p>
         </div>
         <div className="flex space-x-3">
-          <Link href="/dashboard/projects" className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center space-x-2">
+          <Link href="/dashboard/projects" className="px-5 py-2.5 bg-pink-600 hover:bg-pink-700 text-white rounded-xl font-semibold transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center space-x-2">
             <FolderKanban className="w-5 h-5" />
             <span>Projects</span>
           </Link>
@@ -92,10 +92,10 @@ export default function DashboardOverview() {
         <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
           <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
             <h2 className="text-xl font-bold text-slate-800 flex items-center">
-              <Clock className="w-5 h-5 mr-2 text-blue-600" />
+              <Clock className="w-5 h-5 mr-2 text-pink-600" />
               Recent Activity
             </h2>
-            <Link href="/dashboard/tasks" className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center">
+            <Link href="/dashboard/tasks" className="text-sm font-bold text-pink-600 hover:text-pink-700 flex items-center">
               View All Tasks <CheckSquare className="w-4 h-4 ml-1" />
             </Link>
           </div>
@@ -106,14 +106,14 @@ export default function DashboardOverview() {
                   <div className={`p-2.5 rounded-xl ${
                     task.status === "COMPLETED" ? "bg-green-100 text-green-600" :
                     task.status === "IN_PROGRESS" ? "bg-yellow-100 text-yellow-600" :
-                    "bg-blue-100 text-blue-600"
+                    "bg-pink-100 text-pink-600"
                   }`}>
                     {task.status === "COMPLETED" ? <CheckCircle2 className="w-5 h-5" /> : 
                      task.status === "IN_PROGRESS" ? <Clock className="w-5 h-5" /> : 
                      <ListTodo className="w-5 h-5" />}
                   </div>
                   <div>
-                    <h4 className="text-slate-900 font-bold group-hover:text-blue-600 transition-colors">{task.title}</h4>
+                    <h4 className="text-slate-900 font-bold group-hover:text-pink-600 transition-colors">{task.title}</h4>
                     <p className="text-xs font-semibold text-slate-400 uppercase tracking-tighter">{task.project.name}</p>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function DashboardOverview() {
                   <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border ${
                     task.status === "COMPLETED" ? "bg-green-50 text-green-700 border-green-200" :
                     task.status === "IN_PROGRESS" ? "bg-yellow-50 text-yellow-700 border-yellow-200" :
-                    "bg-blue-50 text-blue-700 border-blue-200"
+                    "bg-pink-50 text-pink-700 border-pink-200"
                   }`}>
                     {task.status.replace("_", " ")}
                   </span>
@@ -139,11 +139,11 @@ export default function DashboardOverview() {
         </div>
 
         <div className="space-y-6">
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-pink-600 to-indigo-700 rounded-3xl p-8 text-white shadow-lg shadow-pink-500/20 relative overflow-hidden">
             <div className="relative z-10">
               <h3 className="text-xl font-bold mb-2">Team Capacity</h3>
-              <p className="text-blue-100 text-sm mb-6">You have {tasks.filter(t => t.status !== 'COMPLETED').length} active tasks across {stats?.activeProjects ?? 0} projects.</p>
-              <Link href="/dashboard/tasks" className="inline-flex items-center space-x-2 bg-white text-blue-700 px-4 py-2 rounded-xl text-sm font-bold hover:bg-blue-50 transition-colors">
+              <p className="text-pink-100 text-sm mb-6">You have {tasks.filter(t => t.status !== 'COMPLETED').length} active tasks across {stats?.activeProjects ?? 0} projects.</p>
+              <Link href="/dashboard/tasks" className="inline-flex items-center space-x-2 bg-white text-pink-700 px-4 py-2 rounded-xl text-sm font-bold hover:bg-pink-50 transition-colors">
                 <span>Manage Workflow</span>
               </Link>
             </div>

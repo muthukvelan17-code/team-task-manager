@@ -126,7 +126,7 @@ export default function ProjectsPage() {
   };
 
   if (loading) return <div className="h-64 flex items-center justify-center">
-    <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+    <Loader2 className="w-8 h-8 animate-spin text-pink-600" />
   </div>;
 
   return (
@@ -197,7 +197,7 @@ export default function ProjectsPage() {
                   placeholder="E.g., Website Redesign"
                   value={newProject.name}
                   onChange={(e) => setNewProject({ ...newProject, name: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-slate-800"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all text-slate-800"
                   required
                 />
               </div>
@@ -208,7 +208,7 @@ export default function ProjectsPage() {
                   placeholder="What is this project about?"
                   value={newProject.description}
                   onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none h-24 resize-none transition-all text-slate-800"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none h-24 resize-none transition-all text-slate-800"
                 />
               </div>
 
@@ -220,7 +220,7 @@ export default function ProjectsPage() {
                       type="date"
                       value={newProject.deadline}
                       onChange={(e) => setNewProject({ ...newProject, deadline: e.target.value })}
-                      className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-slate-800"
+                      className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all text-slate-800"
                     />
                   </div>
                 </div>
@@ -230,7 +230,7 @@ export default function ProjectsPage() {
                   <select
                     value={newProject.priority}
                     onChange={(e) => setNewProject({ ...newProject, priority: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white transition-all text-slate-800"
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none bg-white transition-all text-slate-800"
                   >
                     <option value="LOW">Low</option>
                     <option value="MEDIUM">Medium</option>
@@ -243,7 +243,7 @@ export default function ProjectsPage() {
                 <label className="block text-sm font-semibold text-slate-700 mb-1">Assign Team Members</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-32 overflow-y-auto p-3 border border-slate-200 rounded-xl bg-slate-50/50">
                   {users.map(user => (
-                    <label key={user.id} className="flex items-center space-x-2 text-sm text-slate-600 cursor-pointer hover:text-blue-600 transition-colors">
+                    <label key={user.id} className="flex items-center space-x-2 text-sm text-slate-600 cursor-pointer hover:text-pink-600 transition-colors">
                       <input
                         type="checkbox"
                         checked={newProject.memberIds.includes(user.id)}
@@ -253,7 +253,7 @@ export default function ProjectsPage() {
                             : newProject.memberIds.filter(id => id !== user.id);
                           setNewProject({ ...newProject, memberIds: ids });
                         }}
-                        className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-slate-300 text-pink-600 focus:ring-pink-500"
                       />
                       <span>{user.name}</span>
                     </label>
@@ -266,7 +266,7 @@ export default function ProjectsPage() {
                 <select
                   value={newProject.status}
                   onChange={(e) => setNewProject({ ...newProject, status: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white transition-all text-slate-800"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none bg-white transition-all text-slate-800"
                 >
                   <option value="ACTIVE">Active</option>
                   <option value="COMPLETED">Completed</option>
@@ -286,7 +286,7 @@ export default function ProjectsPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors flex items-center space-x-2 disabled:opacity-70"
+                  className="px-5 py-2.5 bg-pink-600 hover:bg-pink-700 text-white rounded-xl font-medium transition-colors flex items-center space-x-2 disabled:opacity-70"
                 >
                   {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
                   <span>{isSubmitting ? 'Creating...' : 'Create Project'}</span>
@@ -301,20 +301,20 @@ export default function ProjectsPage() {
         {projects.map((project) => (
           <div key={project.id} className="block group relative">
             <Link href={`/dashboard/projects/${project.id}`} className="block h-full">
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md hover:border-blue-200 transition-all duration-200 relative overflow-hidden h-full flex flex-col">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md hover:border-pink-200 transition-all duration-200 relative overflow-hidden h-full flex flex-col">
                 <div className={`absolute top-0 left-0 w-1 h-full ${
                   project.priority === 'HIGH' ? 'bg-red-500' :
                   project.priority === 'MEDIUM' ? 'bg-yellow-500' : 'bg-green-500'
                 }`} />
                 <div className="flex justify-between items-start mb-4">
-                  <div className="p-3 bg-blue-50 text-blue-600 rounded-xl group-hover:bg-blue-100 transition-colors">
+                  <div className="p-3 bg-pink-50 text-pink-600 rounded-xl group-hover:bg-pink-100 transition-colors">
                     <FolderKanban className="w-6 h-6" />
                   </div>
                   <div className="flex items-center space-x-2">
                     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
                       project.status === 'COMPLETED' ? 'bg-green-100 text-green-700' :
                       project.status === 'OVERDUE' ? 'bg-red-100 text-red-700' :
-                      'bg-blue-100 text-blue-700'
+                      'bg-pink-100 text-pink-700'
                     }`}>
                       {project.status.replace("_", " ")}
                     </span>
@@ -375,7 +375,7 @@ export default function ProjectsPage() {
           <p className="text-slate-500 mb-6">Get started by creating your first team project.</p>
           <button
             onClick={() => setShowCreate(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-medium transition-colors inline-flex items-center space-x-2"
+            className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2.5 rounded-xl font-medium transition-colors inline-flex items-center space-x-2"
           >
             <Plus className="w-5 h-5" />
             <span>Create Your First Project</span>
@@ -386,7 +386,7 @@ export default function ProjectsPage() {
       {/* Floating Action Button */}
       <button
         onClick={() => setShowCreate(true)}
-        className="fixed bottom-8 right-8 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 hover:scale-105 z-40 group"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-pink-600 hover:bg-pink-700 text-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(219,39,119,0.3)] flex items-center justify-center transition-all duration-300 hover:scale-105 z-40 group"
         aria-label="Create New Project"
       >
         <Plus className="w-7 h-7 group-hover:rotate-90 transition-transform duration-300" />

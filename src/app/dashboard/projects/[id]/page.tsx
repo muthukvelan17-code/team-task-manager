@@ -221,14 +221,14 @@ export default function ProjectDetails() {
       case "COMPLETED": return "bg-green-100 text-green-700";
       case "IN_PROGRESS": return "bg-yellow-100 text-yellow-700";
       case "OVERDUE": return "bg-red-100 text-red-700";
-      default: return "bg-blue-100 text-blue-700";
+      default: return "bg-pink-100 text-pink-700";
     }
   };
 
   if (loading) {
     return (
       <div className="h-64 flex flex-col items-center justify-center space-y-4">
-        <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
+        <Loader2 className="w-10 h-10 animate-spin text-pink-600" />
         <p className="text-slate-500 font-medium">Loading project details...</p>
       </div>
     );
@@ -240,7 +240,7 @@ export default function ProjectDetails() {
         <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
         <h2 className="text-xl font-bold text-slate-900">Project Not Found</h2>
         <p className="text-slate-500 mt-2">The project you are looking for does not exist or was deleted.</p>
-        <Link href="/dashboard/projects" className="mt-6 text-blue-600 hover:underline">
+        <Link href="/dashboard/projects" className="mt-6 text-pink-600 hover:underline">
           Return to Projects
         </Link>
       </div>
@@ -258,7 +258,7 @@ export default function ProjectDetails() {
 
       {/* Breadcrumb Navigation */}
       <div className="flex items-center space-x-2 text-sm text-slate-500 font-medium mb-2">
-        <Link href="/dashboard/projects" className="hover:text-blue-600 transition-colors">Projects</Link>
+        <Link href="/dashboard/projects" className="hover:text-pink-600 transition-colors">Projects</Link>
         <ChevronRight className="w-4 h-4" />
         <span className="text-slate-900">{project.name}</span>
       </div>
@@ -283,7 +283,7 @@ export default function ProjectDetails() {
 
           <div className="flex flex-wrap items-center gap-6 mt-8">
             <div className="flex items-center space-x-3 bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
-              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-sm font-bold shadow-sm">
+              <div className="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-pink-700 text-sm font-bold shadow-sm">
                 {project.owner?.name?.[0] || 'U'}
               </div>
               <div>
@@ -374,7 +374,7 @@ export default function ProjectDetails() {
                   type="text"
                   value={editProjectData.name}
                   onChange={(e) => setEditProjectData({ ...editProjectData, name: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition-all"
                   required
                 />
               </div>
@@ -383,7 +383,7 @@ export default function ProjectDetails() {
                 <textarea
                   value={editProjectData.description}
                   onChange={(e) => setEditProjectData({ ...editProjectData, description: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none h-24 resize-none transition-all"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none h-24 resize-none transition-all"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -393,7 +393,7 @@ export default function ProjectDetails() {
                     type="date"
                     value={editProjectData.deadline}
                     onChange={(e) => setEditProjectData({ ...editProjectData, deadline: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition-all"
                   />
                 </div>
                 <div>
@@ -401,7 +401,7 @@ export default function ProjectDetails() {
                   <select
                     value={editProjectData.priority}
                     onChange={(e) => setEditProjectData({ ...editProjectData, priority: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white transition-all"
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none bg-white transition-all"
                   >
                     <option value="LOW">Low</option>
                     <option value="MEDIUM">Medium</option>
@@ -414,7 +414,7 @@ export default function ProjectDetails() {
                 <select
                   value={editProjectData.status}
                   onChange={(e) => setEditProjectData({ ...editProjectData, status: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white transition-all"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none bg-white transition-all"
                 >
                   <option value="ACTIVE">Active</option>
                   <option value="COMPLETED">Completed</option>
@@ -425,7 +425,7 @@ export default function ProjectDetails() {
                 <label className="block text-sm font-semibold text-slate-700 mb-1">Team Members</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-32 overflow-y-auto p-3 border border-slate-200 rounded-xl bg-slate-50/50">
                   {users.map(user => (
-                    <label key={user.id} className="flex items-center space-x-2 text-sm text-slate-600 cursor-pointer hover:text-blue-600 transition-colors">
+                    <label key={user.id} className="flex items-center space-x-2 text-sm text-slate-600 cursor-pointer hover:text-pink-600 transition-colors">
                       <input
                         type="checkbox"
                         checked={editProjectData.memberIds.includes(user.id)}
@@ -435,7 +435,7 @@ export default function ProjectDetails() {
                             : editProjectData.memberIds.filter(id => id !== user.id);
                           setEditProjectData({ ...editProjectData, memberIds: ids });
                         }}
-                        className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-slate-300 text-pink-600 focus:ring-pink-500"
                       />
                       <span>{user.name}</span>
                     </label>
@@ -454,7 +454,7 @@ export default function ProjectDetails() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors flex items-center space-x-2 disabled:opacity-70"
+                  className="px-5 py-2.5 bg-pink-600 hover:bg-pink-700 text-white rounded-xl font-medium transition-colors flex items-center space-x-2 disabled:opacity-70"
                 >
                   {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
                   <span>Save Changes</span>
@@ -505,14 +505,14 @@ export default function ProjectDetails() {
           <div>
             <h2 className="text-2xl font-bold text-slate-800 flex items-center">
               Project Tasks
-              <span className="ml-3 bg-blue-100 text-blue-700 text-sm py-1 px-3 rounded-full font-semibold">
+              <span className="ml-3 bg-pink-100 text-pink-700 text-sm py-1 px-3 rounded-full font-semibold">
                 {project.tasks.length}
               </span>
             </h2>
           </div>
           <button
             onClick={() => setShowCreateTask(true)}
-            className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all shadow-sm hover:shadow-md active:scale-95"
+            className="flex items-center space-x-2 bg-pink-600 hover:bg-pink-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all shadow-sm hover:shadow-md active:scale-95"
           >
             <Plus className="w-5 h-5" />
             <span>Add Task</span>
@@ -561,7 +561,7 @@ export default function ProjectDetails() {
                 <select
                   value={task.status}
                   onChange={(e) => updateTaskStatus(task.id, e.target.value)}
-                  className={`w-full md:w-auto px-4 py-2 rounded-xl text-sm font-bold border appearance-none cursor-pointer outline-none transition-all shadow-sm hover:shadow focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full md:w-auto px-4 py-2 rounded-xl text-sm font-bold border appearance-none cursor-pointer outline-none transition-all shadow-sm hover:shadow focus:ring-2 focus:ring-pink-500 ${
                     task.status === "COMPLETED" ? "bg-green-50 text-green-700 border-green-200" :
                     task.status === "IN_PROGRESS" ? "bg-yellow-50 text-yellow-700 border-yellow-200" :
                     "bg-white text-slate-700 border-slate-200"
@@ -594,7 +594,7 @@ export default function ProjectDetails() {
                   type="text"
                   value={newTask.title}
                   onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                   className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition-all"
                   required
                   placeholder="What needs to be done?"
                 />
@@ -604,7 +604,7 @@ export default function ProjectDetails() {
                 <textarea
                   value={newTask.description}
                   onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none h-24 resize-none transition-all"
+                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none h-24 resize-none transition-all"
                   placeholder="Add more details..."
                 />
               </div>
@@ -615,7 +615,7 @@ export default function ProjectDetails() {
                     type="date"
                     value={newTask.dueDate}
                     onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none transition-all"
                   />
                 </div>
                 <div>
@@ -623,7 +623,7 @@ export default function ProjectDetails() {
                   <select
                     value={newTask.assigneeId}
                     onChange={(e) => setNewTask({ ...newTask, assigneeId: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none bg-white transition-all"
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-pink-500 outline-none bg-white transition-all"
                   >
                     <option value="">Unassigned</option>
                     {users.map(u => (
@@ -643,7 +643,7 @@ export default function ProjectDetails() {
                 <button
                   type="submit"
                   disabled={isSubmittingTask}
-                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors shadow-sm flex items-center space-x-2 disabled:opacity-70"
+                  className="px-5 py-2.5 bg-pink-600 hover:bg-pink-700 text-white rounded-xl font-medium transition-colors shadow-sm flex items-center space-x-2 disabled:opacity-70"
                 >
                   {isSubmittingTask && <Loader2 className="w-4 h-4 animate-spin" />}
                   <span>{isSubmittingTask ? 'Saving...' : 'Save Task'}</span>

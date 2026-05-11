@@ -108,7 +108,7 @@ export default function MyTasksPage() {
   if (loading) return (
     <div className="p-8 text-slate-500 flex items-center justify-center min-h-[50vh]">
       <div className="flex flex-col items-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mb-4"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-600 mb-4"></div>
         <span className="font-medium">Loading tasks...</span>
       </div>
     </div>
@@ -124,7 +124,7 @@ export default function MyTasksPage() {
         
         <div className="flex flex-wrap items-center gap-3">
           <select 
-            className="bg-white text-slate-700 border border-slate-200 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 font-medium shadow-sm transition-all"
+            className="bg-white text-slate-700 border border-slate-200 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-pink-500 font-medium shadow-sm transition-all"
             value={projectFilter}
             onChange={(e) => setProjectFilter(e.target.value)}
           >
@@ -135,7 +135,7 @@ export default function MyTasksPage() {
           </select>
 
           <select 
-            className="bg-white text-slate-700 border border-slate-200 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 font-medium shadow-sm transition-all"
+            className="bg-white text-slate-700 border border-slate-200 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-pink-500 font-medium shadow-sm transition-all"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
           >
@@ -146,7 +146,7 @@ export default function MyTasksPage() {
           </select>
           
           <select 
-            className="bg-white text-slate-700 border border-slate-200 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 font-medium shadow-sm transition-all"
+            className="bg-white text-slate-700 border border-slate-200 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-pink-500 font-medium shadow-sm transition-all"
             value={priorityFilter}
             onChange={(e) => setPriorityFilter(e.target.value)}
           >
@@ -169,8 +169,8 @@ export default function MyTasksPage() {
       <div className="grid gap-4">
         {filteredAndSortedTasks.length === 0 ? (
           <div className="bg-white rounded-[2rem] p-16 text-center border border-slate-200 border-dashed shadow-sm">
-            <div className="w-24 h-24 bg-blue-50 rounded-[1.5rem] flex items-center justify-center mx-auto mb-6 shadow-inner">
-              <CheckCircle2 className="w-12 h-12 text-blue-500" />
+            <div className="w-24 h-24 bg-pink-50 rounded-[1.5rem] flex items-center justify-center mx-auto mb-6 shadow-inner">
+              <CheckCircle2 className="w-12 h-12 text-pink-500" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-3">No tasks found</h3>
             <p className="text-slate-500 max-w-sm mx-auto text-lg leading-relaxed">No tasks match your current filters. Great job staying on top of things!</p>
@@ -195,7 +195,7 @@ export default function MyTasksPage() {
                   
                   <div className="flex flex-wrap items-center gap-4 text-sm font-medium mt-3">
                     {task.project?.name ? (
-                      <Link href={`/dashboard/projects/${task.project.id}`} className="flex items-center gap-1.5 text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition-colors shadow-sm">
+                      <Link href={`/dashboard/projects/${task.project.id}`} className="flex items-center gap-1.5 text-pink-600 bg-pink-50 hover:bg-pink-100 px-3 py-1.5 rounded-lg transition-colors shadow-sm">
                         <FolderKanban className="w-4 h-4" />
                         {task.project.name}
                       </Link>
@@ -244,7 +244,7 @@ export default function MyTasksPage() {
                     </button>
                     <button
                       onClick={() => updateStatus(task.id, "IN_PROGRESS")}
-                      className={`flex-1 xl:flex-none px-4 py-2 rounded-lg text-sm font-bold transition-all ${task.status === "IN_PROGRESS" ? "bg-blue-500 text-white shadow-sm" : "text-slate-400 hover:text-blue-500"}`}
+                      className={`flex-1 xl:flex-none px-4 py-2 rounded-lg text-sm font-bold transition-all ${task.status === "IN_PROGRESS" ? "bg-pink-500 text-white shadow-sm" : "text-slate-400 hover:text-pink-500"}`}
                     >
                       <Clock className="w-4 h-4 inline-block mr-1.5 -mt-0.5" /> In Progress
                     </button>

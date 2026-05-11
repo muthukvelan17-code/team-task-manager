@@ -43,9 +43,9 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-12">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-pink-900 to-indigo-900 py-12">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-1/4 w-full h-full bg-blue-500/10 blur-[120px] rounded-full"></div>
+        <div className="absolute top-1/4 -right-1/4 w-full h-full bg-pink-500/10 blur-[120px] rounded-full"></div>
         <div className="absolute -bottom-1/4 -left-1/4 w-full h-full bg-indigo-500/10 blur-[120px] rounded-full"></div>
       </div>
       
@@ -57,7 +57,7 @@ export default function Signup() {
             </div>
           </div>
           <h1 className="text-3xl font-bold text-white tracking-tight">Create Account</h1>
-          <p className="text-blue-200 mt-2">Join your team workspace</p>
+          <p className="text-pink-200 mt-2">Join your team workspace</p>
         </div>
 
         {error && (
@@ -68,36 +68,36 @@ export default function Signup() {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Full Name</label>
+            <label className="block text-sm font-medium text-pink-200 mb-2">Full Name</label>
             <input
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-pink-300/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
               placeholder="John Doe"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Email Address</label>
+            <label className="block text-sm font-medium text-pink-200 mb-2">Email Address</label>
             <input
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-pink-300/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
               placeholder="you@company.com"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Password</label>
+            <label className="block text-sm font-medium text-pink-200 mb-2">Password</label>
             <input
               type="password"
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-pink-300/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
               placeholder="••••••••"
               required
               minLength={6}
@@ -105,7 +105,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Role</label>
+            <label className="block text-sm font-medium text-pink-200 mb-2">Role</label>
             <select
               value={formData.role}
               onChange={(e) => setFormData({ ...formData, role: e.target.value })}
@@ -126,7 +126,7 @@ export default function Signup() {
 
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-white/20"></div>
-            <span className="px-3 text-blue-200 text-sm">Or</span>
+            <span className="px-3 text-pink-200 text-sm">Or</span>
             <div className="flex-grow border-t border-white/20"></div>
           </div>
 
@@ -157,7 +157,7 @@ export default function Signup() {
           </button>
         </form>
 
-        <p className="mt-8 text-center text-sm text-blue-200">
+        <p className="mt-8 text-center text-sm text-pink-200">
           Already have an account?{" "}
           <Link href="/login" className="text-white font-medium hover:underline">
             Sign in

@@ -33,21 +33,21 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-pink-900 to-indigo-900">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/10 blur-[120px] rounded-full"></div>
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-pink-500/10 blur-[120px] rounded-full"></div>
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-indigo-500/10 blur-[120px] rounded-full"></div>
       </div>
       
       <div className="z-10 w-full max-w-md p-8 bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="p-3 bg-blue-500 rounded-xl shadow-lg shadow-blue-500/30">
+            <div className="p-3 bg-pink-500 rounded-xl shadow-lg shadow-pink-500/30">
               <CheckCircle2 className="w-8 h-8 text-white" />
             </div>
           </div>
           <h1 className="text-3xl font-bold text-white tracking-tight">Welcome Back</h1>
-          <p className="text-blue-200 mt-2">Sign in to your workspace</p>
+          <p className="text-pink-200 mt-2">Sign in to your workspace</p>
         </div>
 
         {error && (
@@ -58,24 +58,24 @@ export default function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Email Address</label>
+            <label className="block text-sm font-medium text-pink-200 mb-2">Email Address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-pink-300/50 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
               placeholder="you@company.com"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Password</label>
+            <label className="block text-sm font-medium text-pink-200 mb-2">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-pink-300/50 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
               placeholder="••••••••"
               required
             />
@@ -84,14 +84,14 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium shadow-lg shadow-blue-500/30 transform transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white rounded-xl font-medium shadow-lg shadow-pink-500/30 transform transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
 
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-white/20"></div>
-            <span className="px-3 text-blue-200 text-sm">Or</span>
+            <span className="px-3 text-pink-200 text-sm">Or</span>
             <div className="flex-grow border-t border-white/20"></div>
           </div>
 
@@ -122,7 +122,7 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="mt-8 text-center text-sm text-blue-200">
+        <p className="mt-8 text-center text-sm text-pink-200">
           Don't have an account?{" "}
           <Link href="/signup" className="text-white font-medium hover:underline">
             Sign up
